@@ -1,0 +1,178 @@
+<Space@BoxLayout>:
+    size_hint_y: None
+    height: 1
+
+
+<CFitImage@FitImage>:
+    radius: [dp(5)]
+    size_hint_y: None
+    height: self.width
+
+
+<VLabel@MDLabel>:
+    halign: "center"
+    adaptive_height: True
+    bold: True
+    font_size: sp(16)
+    color: 0,0,.3,.8
+
+
+<TLabel@MDLabel>:
+    halign: "center"
+    adaptive_height: True
+    color: .25,.25,.3,1
+    font_size: sp(14)
+
+
+<HomeMainScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 1,1,1,1
+        MDToolbar:
+            title: "[b]Profile[/b]"
+            elevation: 10
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x:x]]
+            right_action_items: [["bell", lambda x:x], ["basket", lambda x:x]]
+            canvas.before:
+                Color:
+                    rgba: app.theme_cls.primary_color
+                Rectangle:
+                    size: self.width, (root.height / 2)
+                    pos: self.x, (self.y - (root.height / 2))
+        BoxLayout:
+            orientation: 'vertical'
+            ScrollView:
+                always_overscroll: False
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    adaptive_height: True
+                    padding: 0, dp(50)
+                    MDCard:
+                        orientation: 'vertical'
+                        height: self.minimum_height + dp(10)
+                        md_bg_color: 1,1,1,1
+                        radius: [dp(5)]
+                        size_hint: .9, None
+                        pos_hint: {'center_x': .5}
+                        spacing: dp(15)
+                        padding: dp(10), 0
+                        FloatLayout:
+                            size_hint_y: None
+                            height: dp(45)
+                            FitImage:
+                                pos_hint: {"center_x": .5, "center_y": 1}
+                                source: "assets/image-01.png"
+                                radius: [dp(90)]
+                                size_hint: None, None
+                                size: dp(90), dp(90)
+                        MDBoxLayout:
+                            adaptive_height: True
+                            spacing: dp(15)
+                            padding: dp(5), dp(10)
+                            Space:
+                            MDRaisedButton:
+                                text: "[color=#FFFFFF][b]CONNECT[/b][/color]"
+                                md_bg_color: app.theme_cls.primary_light
+                            MDRaisedButton:
+                                text: "[color=#FFFFFF][b]MESSAGE[/b][/color]"
+                                md_bg_color: 0,0,.2,1
+                            Space:
+                        MDBoxLayout:
+                            adaptive_height: True
+                            MDBoxLayout:
+                                adaptive_height: True
+                                orientation: 'vertical'
+                                spacing: dp(5)
+                                VLabel:
+                                    text: "2k"
+                                TLabel:
+                                    text: "Friends"
+                            MDBoxLayout:
+                                adaptive_height: True
+                                orientation: 'vertical'
+                                spacing: dp(5)
+                                VLabel:
+                                    text: "10"
+                                TLabel:
+                                    text: "Photos"
+                            MDBoxLayout:
+                                adaptive_height: True
+                                orientation: 'vertical'
+                                spacing: dp(5)
+                                VLabel:
+                                    text: "89"
+                                TLabel:
+                                    text: "Comments"
+                        MDBoxLayout:
+                            adaptive_height: True
+                            orientation: 'vertical'
+                            padding: 0, dp(15)
+                            spacing: dp(5)
+                            MDLabel:
+                                halign: "center"
+                                adaptive_height: True
+                                text: "Jessica Jones, 27"
+                                font_size: sp(24)
+                                color: .0,.0,.2,1
+                            MDLabel:
+                                halign: "center"
+                                adaptive_height: True
+                                text: "San Franscisco, USA"
+                                color: .25,.25,.3,1
+                        MDBoxLayout:
+                            adaptive_height: True
+                            orientation: 'vertical'
+                            padding: 0, dp(10)
+                            spacing: dp(7)
+                            canvas:
+                                Color:
+                                    rgb: [.9, .9, .9]
+                                Line:
+                                    points: [self.x + dp(50), self.top, self.right - dp(50), self.top]
+                                    width: sp(1)
+                            MDLabel:
+                                text: "An artist of considerable range, jessica\nname taken by Melbourne ..."
+                                halign: "center"
+                                adaptive_height: True
+                                color: .4,.4,.4,1
+                                font_size: sp(13)
+                                line_height: 1.3
+                            MDLabel:
+                                halign: "center"
+                                adaptive_height: True
+                                text: "[ref=read_more]Show more[/ref]"
+                                color: C("#003388")
+                                markup: True
+                                on_ref_press: print(self.refs)
+                        MDLabel:
+                            adaptive_height: True
+                            text: "Album"
+                            color: 0,0,.2,1
+                            bold: True
+                        MDLabel:
+                            text: "[ref=view_all]View All[/ref]"
+                            adaptive_height: True
+                            halign: "right"
+                            color: 0,.4,.8,1
+                            font_size: sp(12)
+                            markup: True
+                            on_ref_press: print(self.refs)
+                        MDGridLayout:
+                            cols: 3
+                            spacing: dp(10)
+                            adaptive_height: True
+                            CFitImage:
+                                source: "assets/image-02.png"
+                            CFitImage:
+                                source: "assets/image-03.png"
+                            CFitImage:
+                                source: "assets/image-04.png"
+                            CFitImage:
+                                source: "assets/image-07.png"
+                            CFitImage:
+                                source: "assets/image-06.png"
+                            CFitImage:
+                                source: "assets/image-05.png"
+                        Space:
+                            height: dp(8)
